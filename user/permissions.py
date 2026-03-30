@@ -7,8 +7,14 @@ from rest_framework.permissions import (
 class IsAdminOrIfAuthenticatedReadOnly(BasePermission):
 
     def has_permission(self, request, view):
-        return bool(
-            request.method in SAFE_METHODS and
-            request.user and
-            request.user.is_authenticated
-        ) or bool(request.user.is_staff and request.user.is_authenticated)
+        return (
+            bool(
+                request.method in SAFE_METHODS
+                and request.user
+                and request.user.is_authenticated
+            )
+            or bool(
+                request.user.is_staff
+                and request.user.is_authenticated
+            )
+        )
