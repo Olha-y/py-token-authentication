@@ -9,8 +9,5 @@ venv/
 *.pyc
 **db.sqlite3
 .venv/
-.venv
-.DS_Store
 .AppleDouble
 .LSOverride
-
